@@ -1,0 +1,4 @@
+/* SPDX-License-Identifier: MPL-2.0 */
+
+nav button{font-size:12px}#status,#analysis-toggle{font-size:12px}#analysis-toggle output{font-size:11px}.control>label{font-size:11px}.control>output{font-size:14px}.control{gap:2px}.signal-strip{font-size:11px}#controls input[type=range]{top:16px}.field-label{font-size:9px}@media(max-width:760px){.control>label{font-size:10px}.control>output{font-size:13px}}
+.renderer-notice{position:absolute;inset:0;display:grid;place-content:center;margin:0;color:#858e91;font-size:12px;pointer-events:none}

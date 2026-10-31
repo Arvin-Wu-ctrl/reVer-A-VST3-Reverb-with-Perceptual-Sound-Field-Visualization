@@ -1,10 +1,10 @@
 # reVer — A VST3 Reverb with Perceptual Sound-Field Visualization
 
-reVer is an experimental Windows VST3 reverb with Input, Output and Reverb FX spatial views. **The reverb DSP engine is built in Rust and open source.** Acoustic analysis, perceptual mapping, particle rendering and the complete plugin integration remain proprietary.
+reVer is an experimental Windows VST3 reverb with Input, Output and Reverb FX spatial views. **The Rust reverb DSP engine and TypeScript/CSS UI shell are open source.** Acoustic analysis, perceptual mapping, particle rendering and the complete plugin integration remain proprietary.
 
 ![reVer interface](docs/interface.png)
 
-*Interface preview using authored graphics fixtures. The interface implementation is not included in this repository.*
+*Complete plugin preview using authored graphics fixtures. The UI shell source is included; the particle renderer is not.*
 
 ## Downloads
 
@@ -41,6 +41,18 @@ reverb.process_stereo(&mut left, &mut right).unwrap();
 
 Building this crate alone does not produce the complete reVer VST3 plugin. The full product's display interprets acoustic cues; it is not physical room reconstruction or instrument separation. No automatic loudness matching or broad host-compatibility guarantee is provided.
 
+## Open UI shell
+
+[`ui/`](ui/) contains the actual TypeScript parameter controller, interface markup and CSS extracted from reVer. Its standalone preview supports the nine controls, view selection and Analysis state. The visualization surface is intentionally empty: no particle rendering, shaders, acoustic analysis or sound-to-shape mapping are included.
+
+```sh
+cd ui
+npm ci
+npm run dev
+```
+
+See [UI documentation](ui/README.md) for the host-control bridge and build commands. This source addition does not change the VST Alpha binary already available under Releases.
+
 ## License
 
-The original engine source, tests and example in this repository use **MPL-2.0**; see [LICENSE](LICENSE). The separately distributed plugin retains the applicable open-source notices and licenses. Private analysis and rendering code are not licensed by this repository. Earlier published versions retain their original license grants; this repository's current scope does not revoke those grants.
+The original engine source, tests, example and UI shell in this repository use **MPL-2.0**; see [LICENSE](LICENSE). Third-party build dependencies retain their respective licenses. The separately distributed plugin retains its release-specific notices and licenses. Private analysis and rendering code are not licensed by this repository. Earlier published versions retain their original license grants; this repository's current scope does not revoke those grants.
