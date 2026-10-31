@@ -1,0 +1,5 @@
+/target/
+*.wav
+*.pdb
+.env
+.DS_Store
